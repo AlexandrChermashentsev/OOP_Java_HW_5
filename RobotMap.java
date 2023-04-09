@@ -20,6 +20,13 @@ public class RobotMap {
         this.robots = new HashMap<>();
     }
 
+    public Robot findRobotById(UUID id) {
+        return robots.get(id);
+    }
+    public Map<UUID, Robot> getMapRobots(){
+        return robots;
+    }
+
     public Robot createRobot(Point position) throws PositionException {
         checkPosition(position);
 
@@ -42,14 +49,7 @@ public class RobotMap {
 //                .map(robot -> robot.getPosition())
                 .map(Robot::getPosition) // Point
                 .noneMatch(position::equals);
-
-//        for (Robot value : robots.values()) {
-//            if (value.getPosition().equals(position)) {
-//                return false;
-//            }
-//        }
-//        return true;
-    }
+        }
 
     public class Robot {
 
@@ -89,7 +89,7 @@ public class RobotMap {
 
         @Override
         public String toString() {
-            return String.format("[%s] %s", id.toString(), position.toString());
+            return String.format("[%s] %s %s", id.toString(), position.toString(), direction);
         }
     }
 

@@ -1,7 +1,5 @@
 package Seminar_5.lesson5;
 
-// import java.util.Objects;
-
 public class Point {
 
     private final int x;
